@@ -1,9 +1,11 @@
-﻿namespace Hangmen.BL;
+﻿using Hangmen.BL.Interfaces;
+
+namespace Hangmen.BL.Implementation;
 
 public sealed class WordPool: IWordPool
 {
 
-    private string[] _words = 
+    private string[] _wordsPool = 
     {
         "Apfel",
         "Hund",
@@ -32,21 +34,21 @@ public sealed class WordPool: IWordPool
 
     public string GetWordFromIndex(int index)
     {
-        if(index<0 || index >= _words.Length)
+        if(index<0 || index >= _wordsPool.Length)
             throw new ArgumentOutOfRangeException(nameof(index), "Index cannot be negative or bigger than list size");
 
-        return _words[index];
+        return _wordsPool[index];
     }
     public string MaskWordFromIndex(int index, int ratio)
     {
-        if (index < 0 || index >= _words.Length)
+        if (index < 0 || index >= _wordsPool.Length)
             throw new ArgumentOutOfRangeException(nameof(index), "Index cannot be negative or bigger than list size");
 
         if (ratio <= 0 || ratio >= 100)
             throw new ArgumentOutOfRangeException(nameof(ratio), "Ratio cannot be lower or equal zero or bigger than 100");
 
 
-        string originalWord = _words[index];
+        string originalWord = _wordsPool[index];
         char[] maskedChars = originalWord.ToCharArray();
 
         int wordLength = originalWord.Length;
@@ -67,18 +69,18 @@ public sealed class WordPool: IWordPool
     }
     public int GetRandomWord()
     {
-        return _random.Next(_words.Length);
+        return _random.Next(_wordsPool.Length);
     }
     public string RevealLetter(string maskedWord, int poolIndex, char input)
     {
-        if (poolIndex < 0 || poolIndex >= _words.Length)
+        if (poolIndex < 0 || poolIndex >= _wordsPool.Length)
             throw new ArgumentOutOfRangeException(nameof(poolIndex), "Index cannot be negative or bigger than list size");
 
-        if (maskedWord.Length != _words[poolIndex].Length)
+        if (maskedWord.Length != _wordsPool[poolIndex].Length)
             throw new ArgumentException("Words must be the same length.");
 
         char[] maskedChars = maskedWord.ToCharArray();
-        char[] revealedChars = _words[poolIndex].ToCharArray();
+        char[] revealedChars = _wordsPool[poolIndex].ToCharArray();
 
         for (int i = 0; i < revealedChars.Length; i++)
         {
@@ -92,9 +94,9 @@ public sealed class WordPool: IWordPool
     }
     public bool ContainsLetter(int index, char letter)
     {
-        if(index<0 || index >= _words.Length)
+        if(index<0 || index >= _wordsPool.Length)
             throw new ArgumentOutOfRangeException(nameof(index), "Index cannot be negative or bigger than list size");
 
-        return _words[index].Contains(letter,StringComparison.OrdinalIgnoreCase);
+        return _wordsPool[index].Contains(letter,StringComparison.OrdinalIgnoreCase);
     }
 }

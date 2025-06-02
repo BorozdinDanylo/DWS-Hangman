@@ -1,4 +1,4 @@
-﻿namespace Hangmen.BL;
+﻿namespace Hangmen.BL.Interfaces;
 
 public interface IWordPool
 {
