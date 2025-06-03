@@ -9,16 +9,9 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        private void CheckLetter(object? sender, EventArgs e) { }
+        private void EnterLetter(object? sender, EventArgs e) { }
+        private void ResetGame(object? sender, EventArgs e) { }
+        private void ExitGame(object? sender, EventArgs e) { }
     }
 }
