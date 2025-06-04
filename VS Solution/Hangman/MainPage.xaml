@@ -30,19 +30,19 @@
             <Entry
                 x:Name="LetterInput"
                 FontSize="24"
-                TextChanged="CheckLetter"
                 HorizontalOptions="Center"
+                IsVisible="True"
                 Placeholder="Enter a letter" />
 
             <Button
-                Clicked="EnterLetter"
+                x:Name="EnterLetter"
                 FontSize="24"
                 HorizontalOptions="Center"
+                IsVisible="True"
                 Text="Enter Letter" />
 
             <Button
                 x:Name="ResetButton"
-                Clicked="ResetGame"
                 FontSize="24"
                 HorizontalOptions="Center"
                 IsVisible="False"
@@ -50,7 +50,6 @@
 
             <Button
                 x:Name="ExitButton"
-                Clicked="ExitGame"
                 FontSize="24"
                 HorizontalOptions="Center"
                 IsVisible="False"
@@ -59,6 +58,7 @@
             <Label
                 FontSize="20"
                 HorizontalOptions="Start"
+                IsVisible="True"
                 Text="Wrong letters:" />
 
             <Label
@@ -66,6 +66,7 @@
                 FontSize="20"
                 HorizontalOptions="Start"
                 MaxLines="5"
+                IsVisible="True"
                 Text="K M N G W" />
 
             <Label

@@ -5,12 +5,15 @@ namespace Hangman
 {
     public partial class MainPage : ContentPage
     {
+        // IWordPool wordPool = new WordPool();
+        // IGameManager gameManager = new GameManager(wordPool);
+
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void CheckLetter(object? sender, EventArgs e)
+        private void CheckLetterCommand(object? sender, EventArgs e)
         {
             string? letter = LetterInput.Text;
 
@@ -27,8 +30,8 @@ namespace Hangman
                 LetterInput.TextColor = Colors.Black;
             }
         }
-        private void EnterLetter(object? sender, EventArgs e) { }
-        private void ResetGame(object? sender, EventArgs e) { }
-        private void ExitGame(object? sender, EventArgs e) { }
+        private void EnterLetterCommand(object? sender, EventArgs e) { }
+        private void ExitGameCommand(object? sender, EventArgs e) { }
+        private void RestartGameCommand(object? sender, EventArgs e) { }
     }
 }
