@@ -1,6 +1,5 @@
 ﻿using Hangmen.BL.Implementation;
 using Hangmen.BL.Interfaces;
-using static System.Net.Mime.MediaTypeNames;
 
 bool debugMode = true;
 
@@ -14,9 +13,20 @@ gameManager.GameStateChanged += (state) =>
 
     switch (state)
     {
+        case GameState.NotStarted:
+            Console.WriteLine("Game has not started yet. Please start a new game.");
+            Console.WriteLine("You can reset the game via typ 'r' or close it with any other input");
+            string input = Console.ReadLine();
+            if (input.Equals("r", StringComparison.OrdinalIgnoreCase))
+            {
+                gameManager.ResetGame();
+            }
+            else
+            {
+                System.Environment.Exit(0);
+            }
+            break;
         case GameState.Started:
-            Console.WriteLine("Game has not started yet.");
-
             if (debugMode)
             {
                 Console.WriteLine($"Debug Mode: True :: Word '{gameManager.GetRawWord()}'");

@@ -54,7 +54,6 @@ public sealed class WordPool: IWordPool
         int wordLength = originalWord.Length;
         int numberOfLettersToMask = (int)Math.Round(wordLength * (ratio / 100.0));
 
-        // Випадковий вибір позицій для маскування
         IEnumerable<int> positionsToMask = Enumerable
             .Range(0, wordLength)
             .OrderBy(_ => _random.Next())
@@ -84,7 +83,7 @@ public sealed class WordPool: IWordPool
 
         for (int i = 0; i < revealedChars.Length; i++)
         {
-            if (string.Equals(revealedChars[i].ToString(),input.ToString(),StringComparison.OrdinalIgnoreCase) && maskedChars[i] == '_')
+            if (string.Equals(revealedChars[i].ToString(), input.ToString(), StringComparison.OrdinalIgnoreCase))
             {
                 maskedChars[i] = revealedChars[i];
             }
