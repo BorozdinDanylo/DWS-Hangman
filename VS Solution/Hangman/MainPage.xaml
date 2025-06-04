@@ -25,12 +25,13 @@
                 x:Name="ShowedWord"
                 FontSize="32"
                 HorizontalOptions="Center"
-                Text="S _ u _ _" />
+                Text="H a u s e" />
 
             <Entry
                 x:Name="LetterInput"
                 FontSize="24"
                 HorizontalOptions="Center"
+                TextChanged="CheckLetterCommand"
                 IsVisible="True"
                 Placeholder="Enter a letter" />
 
@@ -38,27 +39,27 @@
                 x:Name="EnterLetter"
                 FontSize="24"
                 HorizontalOptions="Center"
-                IsVisible="True"
+                IsVisible="False"
                 Text="Enter Letter" />
 
             <Button
                 x:Name="ResetButton"
                 FontSize="24"
                 HorizontalOptions="Center"
-                IsVisible="False"
+                IsVisible="True"
                 Text="Reset Game" />
 
             <Button
                 x:Name="ExitButton"
                 FontSize="24"
                 HorizontalOptions="Center"
-                IsVisible="False"
+                IsVisible="True"
                 Text="Reset Game" />
 
             <Label
                 FontSize="20"
                 HorizontalOptions="Start"
-                IsVisible="True"
+                IsVisible="False"
                 Text="Wrong letters:" />
 
             <Label
@@ -66,7 +67,7 @@
                 FontSize="20"
                 HorizontalOptions="Start"
                 MaxLines="5"
-                IsVisible="True"
+                IsVisible="False"
                 Text="K M N G W" />
 
             <Label
@@ -74,8 +75,8 @@
                 FontAttributes="Bold"
                 FontSize="50"
                 HorizontalOptions="Center"
-                IsVisible="False"
-                Text="You Won!" />
+                IsVisible="True"
+                Text="You Lose!" />
         </VerticalStackLayout>
     </ScrollView>
 
