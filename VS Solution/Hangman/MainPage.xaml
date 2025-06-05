@@ -6,13 +6,6 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="25">
-
-            <Label
-                x:Name="WrongsCounter"
-                FontSize="15"
-                HorizontalOptions="End"
-                IsVisible="False" />
-
             <Image
                 x:Name="StartImage"
                 Aspect="AspectFit"
@@ -36,28 +29,36 @@
                 IsVisible="True"
                 Text="Start Game" />
 
-            <Image
-                x:Name="ProgresImage"
-                Aspect="AspectFit"
-                HorizontalOptions="Center"
-                IsVisible="False"
-                MaximumHeightRequest="335"
-                MaximumWidthRequest="260">
-                <Image.HeightRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="WinUI" Value="335" />
-                        <On Platform="Android" Value="Auto" />
-                        <On Platform="iOS" Value="Auto" />
-                    </OnPlatform>
-                </Image.HeightRequest>
-                <Image.WidthRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="WinUI" Value="260" />
-                        <On Platform="Android" Value="Auto" />
-                        <On Platform="iOS" Value="Auto" />
-                    </OnPlatform>
-                </Image.WidthRequest>
-            </Image>
+            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                <Image
+                    x:Name="ProgresImage"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    MaximumHeightRequest="335"
+                    MaximumWidthRequest="260">
+                    <Image.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="WinUI" Value="335" />
+                            <On Platform="Android" Value="335" />
+                            <On Platform="iOS" Value="335" />
+                        </OnPlatform>
+                    </Image.HeightRequest>
+                    <Image.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="WinUI" Value="260" />
+                            <On Platform="Android" Value="260" />
+                            <On Platform="iOS" Value="260" />
+                        </OnPlatform>
+                    </Image.WidthRequest>
+                </Image>
+
+                <Label
+                    x:Name="WrongsCounter"
+                    FontSize="15"
+                    HorizontalOptions="End"
+                    IsVisible="False" />
+            </Grid>
 
             <Label
                 x:Name="ShowedWord"
@@ -133,11 +134,10 @@
             <Label
                 x:Name="GameOver"
                 FontAttributes="Bold"
-                FontSize="50"
+                FontSize="20"
                 HorizontalOptions="Center"
-                IsVisible="False"
-                Text="You Lose!" />
+                IsVisible="False" />
         </VerticalStackLayout>
     </ScrollView>
-
+    
 </ContentPage>
