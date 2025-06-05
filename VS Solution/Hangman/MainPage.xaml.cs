@@ -93,6 +93,8 @@ namespace Hangman
             WrongLetters.Text = string.Join(", ", wrongLetters);
             WrongsCounter.Text = $"Wrong guesses left: {leftGuesses}";
 
+            LetterInput.Text = string.Empty;
+
             ProgresImage.Source = hangman_images[maxAttempts - leftGuesses];
         }
         private void HandelCorrectGuess(string updatedMaskedWord)
@@ -169,8 +171,7 @@ namespace Hangman
             ExitGameButton.IsVisible = false;
             WrongLettersTitle.IsVisible = false;
             WrongLetters.IsVisible = false;
-
-         
+            ResetButton.IsVisible = false;
         }
         private void VaildateLetterInput()
         {
