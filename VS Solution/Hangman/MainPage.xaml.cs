@@ -150,6 +150,7 @@ namespace Hangman
             WrongsCounter.Text = $"Wrong guesses left: {maxAttempts}";
 
             ProgresImage.Source = hangman_images[0];
+            WrongLetters.Text = string.Empty;
             ShowedWord.Text = _gameManager.GetMaskedWord();
         }
         private void ResetGameUI()
