@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hangman.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Image
+                x:Name="StartImage"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                MaximumHeightRequest="335"
+                MaximumWidthRequest="260"
+                Source="hangman_title.png" />
+
+            <Label
+                x:Name="TitleLabel"
+                FontAttributes="Bold"
+                FontSize="60"
+                HorizontalOptions="Center"
+                Text="Hangman" />
+
+            <Button
+                x:Name="StartButton"
+                Clicked="StartGame_Clicked"
+                FontSize="24"
+                HorizontalOptions="Center"
+                IsVisible="True"
+                Text="Start Game" />
+
+            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                <Image
+                    x:Name="ProgresImage"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    MaximumHeightRequest="335"
+                    MaximumWidthRequest="260">
+                    <Image.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="WinUI" Value="335" />
+                            <On Platform="Android" Value="335" />
+                            <On Platform="iOS" Value="335" />
+                        </OnPlatform>
+                    </Image.HeightRequest>
+                    <Image.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="WinUI" Value="260" />
+                            <On Platform="Android" Value="260" />
+                            <On Platform="iOS" Value="260" />
+                        </OnPlatform>
+                    </Image.WidthRequest>
+                </Image>
+
+                <Label
+                    x:Name="WrongsCounter"
+                    FontSize="15"
+                    HorizontalOptions="End"
+                    IsVisible="False" />
+            </Grid>
+
+            <Label
+                x:Name="ShowedWord"
+                FontSize="32"
+                HorizontalOptions="Center"
+                IsVisible="False" />
+
+            <Entry
+                x:Name="LetterInput"
+                FontSize="24"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Keyboard="Text"
+                Placeholder="Enter a letter"
+                TextChanged="InputLetter_TextChanged" />
+
+            <Button
+                x:Name="EnterLetter"
+                Clicked="EnterLetter_Clicked"
+                FontSize="24"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Enter Letter" />
+
+            <Button
+                x:Name="ResetButton"
+                Clicked="ResetButton_Clicked"
+                FontSize="24"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Reset Game" />
+
+            <Button
+                x:Name="ExitAppButton"
+                Clicked="ExitApp_Clicked"
+                FontSize="24"
+                HorizontalOptions="Center"
+                IsVisible="True"
+                Text="Exit Game" />
+
+            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+
+
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Start">
+
+                    <Label
+                        x:Name="WrongLettersTitle"
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        IsVisible="False"
+                        Text="Wrong letters:" />
+
+                    <Label
+                        x:Name="WrongLetters"
+                        FontSize="20"
+                        IsVisible="False"
+                        MaxLines="5" />
+                </VerticalStackLayout>
+
+
+                <Button
+                    x:Name="ExitGameButton"
+                    Grid.Column="1"
+                    Clicked="ExitGame_Clicked"
+                    FontSize="24"
+                    HorizontalOptions="End"
+                    IsVisible="False"
+                    Text="Exit Game" />
+            </Grid>
+
+
+
+            <Label
+                x:Name="GameOver"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                IsVisible="False" />
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
